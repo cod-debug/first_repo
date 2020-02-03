@@ -53,6 +53,21 @@
 
 			});
 
+			function loadCategories() {
+				var xhttp = new XMLHttpRequest();
+
+				xhttp.onreadystatechange = function (){
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("category_div").innerHTML = this.responseText;
+					}
+				};
+
+				xhttp.open("GET", "category_list.php", true);
+				xhttp.send();
+			};
+
+			setInterval(loadCategories, 10);
+
 		</script>
 	</body>
 </html>
